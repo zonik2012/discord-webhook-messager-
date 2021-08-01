@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>discord webhook controller by XKMR</title>
-	<button onclick="reloadFun()">Send another message</button>
+	<button onclick="sendFun()">Send message</button>
+	<button onclick="exitFun()">exit</button>
+    <button onclick="window.location.href='https://disboard.org/server/864109807949709322';">Join discord server</button>
 </head>
 <script>
+    function sendFun() {
     var webhook = window.prompt("XKMR webhook controller - INPUT WEBHOOK URL: ");
     alert("XKMR webhook controller - URL set!");
     var message = window.prompt("XKMR webhook controller - INPUT MESSAGE: ");
@@ -26,11 +29,12 @@
         avatar_url: propic,
         content: message
     }
-
     request.send(JSON.stringify(params));
-    function reloadFun()
+    }
+    
+	function exitFun()
 	{
-	location.reload();
+	window.close();
 	}
 </script>
 </html>
