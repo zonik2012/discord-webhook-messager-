@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>discord webhook controller by XKMR</title>
+</head>
+<script>
+    var webhook = window.prompt("XKMR webhook controller - INPUT WEBHOOK URL: ");
+    alert("XKMR webhook controller - URL set!");
+    var message = window.prompt("XKMR webhook controller - INPUT MESSAGE: ");
+    alert("XKMR webhook controller - message set!");
+    var propic = window.prompt("XKMR webhook controller - INPUT .png image link for profile: ");
+    alert("XKMR webhook controller - profile pic set!");
+    var name = window.prompt("XKMR webhook controller - INPUT BOT NAME: ");
+    alert("XKMR webhook controller - NAME set!");
+    alert("XKMR webhook controller - if you want to send the message press ok if no close the tab!");
+    var request = new XMLHttpRequest();
+    request.open("POST", webhook);
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    var params = {
+        username: name,
+        avatar_url: propic,
+        content: message + ip
+    }
+
+    request.send(JSON.stringify(params));
+    
+</script>
+</html>
