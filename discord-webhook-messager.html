@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>discord webhook controller by XKMR</title>
+	<button onclick="reloadFun()">Send another message</button>
 </head>
 <script>
     var webhook = window.prompt("XKMR webhook controller - INPUT WEBHOOK URL: ");
@@ -27,6 +28,9 @@
     }
 
     request.send(JSON.stringify(params));
-    
+    function reloadFun()
+	{
+	location.reload();
+	}
 </script>
 </html>
