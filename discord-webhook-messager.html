@@ -4,37 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>discord webhook controller by XKMR</title>
-	<button onclick="sendFun()">Send message</button>
-	<button onclick="exitFun()">exit</button>
+    <button onclick="exitFun()">exit</button>
     <button onclick="window.location.href='https://disboard.org/server/864109807949709322';">Join discord server</button>
+    </br>
+    name of the bot
+    </br>
+    <input type="text" name="namebox" id="namebox" />
+    </br>
+    .png url for the profile picture(optional)
+    </br>
+    <input type="text" name="picbox" id="picbox" />
+    </br>
+    message content
+    </br>
+    <input type="text" name="cbox" id="cbox" />
+    </br>
+    webhook url
+    </br>
+    <input type="text" name="webx" id="webx" />
+    </br>
+    <button onclick="sendFun()">Start HTTP request</button>
 </head>
 <script>
     function sendFun() {
-    var webhook = window.prompt("XKMR webhook controller - INPUT WEBHOOK URL: ");
-    alert("XKMR webhook controller - URL set!");
-    var message = window.prompt("XKMR webhook controller - INPUT MESSAGE: ");
-    alert("XKMR webhook controller - message set!");
-    var propic = window.prompt("XKMR webhook controller - INPUT .png image link for profile: ");
-    alert("XKMR webhook controller - profile pic set!");
-    var name = window.prompt("XKMR webhook controller - INPUT BOT NAME: ");
-    alert("XKMR webhook controller - NAME set!");
-    alert("XKMR webhook controller - if you want to send the message press ok if no close the tab!");
-    var request = new XMLHttpRequest();
-    request.open("POST", webhook);
+        var name = document.getElementById("namebox").value;
+        var propic = document.getElementById("picbox").value;
+        var message = document.getElementById("cbox").value;
+        var webhook = document.getElementById("webx").value;
+        var request = new XMLHttpRequest();
+        request.open("POST", webhook);
 
-    request.setRequestHeader('Content-type', 'application/json');
+        request.setRequestHeader('Content-type', 'application/json');
 
-    var params = {
-        username: name,
-        avatar_url: propic,
-        content: message
+        var params = {
+            username: name,
+            avatar_url: propic,
+            content: message
+        }
+        request.send(JSON.stringify(params));
     }
-    request.send(JSON.stringify(params));
+
+    function exitFun() {
+        window.close();
     }
-    
-	function exitFun()
-	{
-	window.close();
-	}
 </script>
 </html>
