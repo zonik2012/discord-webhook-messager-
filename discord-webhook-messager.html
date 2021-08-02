@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
+    <style>                        /* some style for text boxes and after the style some meta and after that buttons and text boxes */
         #namebox {
             font-size: 18pt;
             height: 40px;
@@ -52,28 +52,28 @@
     </br>
     <p style="font-family:verdana;">tips: you can't name the webhook Clyde.</br>      I'm trying to let you use NewLine in your message, if you know how, make an issue here and tell me (:     <a href="https://github.com/XKMR/discord-webhook-messager-/issues">(click here to make issue)</a></p>
 </head>
-<script>
-    function sendFun() {
-        var name = document.getElementById("namebox").value;
-        var propic = document.getElementById("picbox").value;
+<script>                                        //now this is going to be intresting (start of the JavaScript part)
+    function sendFun() {                    // when button: Start HTTP request was pressed this function will be executed
+        var name = document.getElementById("namebox").value;     //connecting text boxes to here by making this variables to an HTML readbe value
+        var propic = document.getElementById("picbox").value;   // the things that user enter in the text boxes will be in some variables.
         var message = document.getElementById("cbox").value;
         var webhook = document.getElementById("webx").value;
-        var request = new XMLHttpRequest();
+        var request = new XMLHttpRequest();    //this bad boy will help us to send the http request
         request.open("POST", webhook);
 
-        request.setRequestHeader('Content-type', 'application/json');
+        request.setRequestHeader('Content-type', 'application/json'); // just setting up the HTTP request content syntax and ...
 
-        var params = {
+        var params = {     // now setting everything that user entered into a var called params
             username: name,
             avatar_url: propic,
             content: message
         }
-        request.send(JSON.stringify(params));
+        request.send(JSON.stringify(params)); // this will send PARAMS as a HTTP request to the Webhook
         alert("Message sent");
     }
 
-    function exitFun() {
+    function exitFun() {   //it just exits the tab when you press button : Exit
         window.close();
-    }
+    }                       // make sure to join my discord server BYE.... <3
 </script>
 </html>
